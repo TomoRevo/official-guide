@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>質問・リクエスト | TomoRevo</title>
+  <meta name="description" content="AI活用ガイドへの質問や「こんな内容が知りたい」というリクエストをお送りください。">
+
+  <meta property="og:title" content="質問・リクエスト | TomoRevo">
+  <meta property="og:description" content="AI活用ガイドへの質問や「こんな内容が知りたい」というリクエストをお送りください。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Zen+Maru+Gothic:wght@400;500;700;900&family=Shippori+Mincho:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .hero-dawn{position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(180deg,transparent 0%,rgba(240,160,80,0.03) 40%,rgba(240,160,80,0.06) 70%,rgba(240,130,60,0.08) 100%);z-index:0}
+    .hero-stars{position:absolute;inset:0;z-index:0}
+    .hero-star{position:absolute;width:1px;height:1px;background:#fff;border-radius:50%;animation:twinkle var(--dur,4s) var(--delay,0s) ease-in-out infinite alternate}
+    @keyframes twinkle{0%{opacity:.15}100%{opacity:.7}}
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header"></header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-stars" id="hero-stars"></div>
+      <div class="hero-dawn"></div>
+      <div class="hero-content">
+        <p class="hero-level">CONTACT</p>
+        <h1 class="hero-title">質問・リクエスト</h1>
+        <p class="hero-desc">AI活用ガイドへの質問や「こんな内容が知りたい」というリクエストをお送りください。</p>
+      </div>
+    </section>
+
+    <!-- Form -->
+    <section class="section">
+      <div class="container">
+        <div class="form-card">
+          <form data-sheet-url="YOUR_GOOGLE_APPS_SCRIPT_URL" id="contact-form">
+
+            <!-- Name -->
+            <div class="form-group">
+              <label class="form-label">お名前 / ニックネーム<span class="optional">（任意）</span></label>
+              <input type="text" name="name" class="form-input" placeholder="例: たろう">
+            </div>
+
+            <!-- AI Experience -->
+            <div class="form-group">
+              <label class="form-label">AIを使ったことはありますか？</label>
+              <select name="ai_experience" id="ai-experience" class="form-select" required>
+                <option value="" disabled selected>選択してください</option>
+                <option value="yes">はい</option>
+                <option value="no">いいえ</option>
+                <option value="a-little">少しだけ</option>
+              </select>
+            </div>
+
+            <!-- Conditional fields -->
+            <div class="form-conditional" id="ai-experience-details">
+              <div class="form-group">
+                <label class="form-label">今使っているAIを教えてください</label>
+                <input type="text" name="current_ai" class="form-input" placeholder="例: ChatGPT, Gemini">
+              </div>
+              <div class="form-group">
+                <label class="form-label">何に使っていますか？</label>
+                <input type="text" name="ai_usage" class="form-input" placeholder="例: メール作成、調べもの">
+              </div>
+            </div>
+
+            <!-- Question -->
+            <div class="form-group">
+              <label class="form-label">質問・知りたいこと・リクエスト</label>
+              <textarea name="question" class="form-textarea" required placeholder="例: 画像生成AIの使い方をもっと詳しく知りたいです"></textarea>
+            </div>
+
+            <!-- Industry -->
+            <div class="form-group">
+              <label class="form-label">お仕事の業種<span class="optional">（任意）</span></label>
+              <input type="text" name="industry" class="form-input" placeholder="例: 美容業、コーチング、飲食業">
+            </div>
+
+            <div class="form-submit-area">
+              <button type="submit" class="btn-primary">送信する</button>
+            </div>
+          </form>
+
+          <!-- Success Message -->
+          <div class="form-success" id="contact-success">
+            <p class="form-success-title">送信しました！</p>
+            <p class="form-success-desc">ご質問・リクエストありがとうございます。<br>ガイドの内容に反映していきます。</p>
+            <div class="mt-24">
+              <a href="../guide/index.html" class="btn-secondary">AI活用ガイドに戻る →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script>
+  // Star generation
+  const sc=document.getElementById('hero-stars');if(sc){for(let i=0;i<35;i++){const s=document.createElement('div');s.className='hero-star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*70+'%';s.style.setProperty('--dur',(3+Math.random()*5)+'s');s.style.setProperty('--delay',Math.random()*4+'s');s.style.width=s.style.height=(Math.random()>.7?'2px':'1px');sc.appendChild(s);}}
+
+  // Conditional show/hide for AI experience details
+  (function() {
+    var select = document.getElementById('ai-experience');
+    var details = document.getElementById('ai-experience-details');
+    if (!select || !details) return;
+
+    select.addEventListener('change', function() {
+      if (this.value === 'yes' || this.value === 'a-little') {
+        details.classList.add('show');
+      } else {
+        details.classList.remove('show');
+      }
+    });
+  })();
+
+  // Form submission handler
+  (function() {
+    var form = document.getElementById('contact-form');
+    var success = document.getElementById('contact-success');
+    if (!form || !success) return;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      btn.textContent = '送信中...';
+      btn.disabled = true;
+
+      var url = form.getAttribute('data-sheet-url');
+      var data = new FormData(form);
+
+      fetch(url, {
+        method: 'POST',
+        body: data
+      }).then(function() {
+        form.style.display = 'none';
+        success.classList.add('show');
+      }).catch(function() {
+        form.style.display = 'none';
+        success.classList.add('show');
+      });
+    });
+  })();
+  </script>
+  <script src="../js/config.js"></script>
+  <script src="../js/components.js"></script>
+</body>
+</html>

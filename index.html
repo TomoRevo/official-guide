@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TomoRevo — テクノロジーで、大切な時間を取り戻す</title>
+  <meta name="description" content="想いを持つ事業者に寄り添い、AIとITの力で「本当に大切なことに集中できる時間」を届けます。">
+
+  <meta property="og:title" content="TomoRevo — テクノロジーで、大切な時間を取り戻す">
+  <meta property="og:description" content="想いを持つ事業者に寄り添い、AIとITの力で「本当に大切なことに集中できる時間」を届けます。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/ogp.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Zen+Maru+Gothic:wght@400;500;700;900&family=Shippori+Mincho:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .hero-dawn{position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(180deg,transparent 0%,rgba(240,160,80,0.03) 40%,rgba(240,160,80,0.06) 70%,rgba(240,130,60,0.08) 100%);z-index:0}
+    .hero-stars{position:absolute;inset:0;z-index:0}
+    .hero-star{position:absolute;width:1px;height:1px;background:#fff;border-radius:50%;animation:twinkle var(--dur,4s) var(--delay,0s) ease-in-out infinite alternate}
+    @keyframes twinkle{0%{opacity:.15}100%{opacity:.7}}
+    .hero-title-gradient{background:linear-gradient(180deg,#fff,var(--text-s));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header"></header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-stars" id="hero-stars"></div>
+      <div class="hero-dawn"></div>
+      <div class="hero-content">
+        <img src="./images/logo.png" alt="TomoRevo" style="display:block;margin:0 auto 16px;height:80px;width:auto;">
+        <h1 class="hero-title"><span class="hero-title-gradient">TomoRevo</span></h1>
+        <p class="hero-desc">想いを持つ事業者に寄り添い、<br>AIとITの力で「本当に大切なことに集中できる時間」を届けます。</p>
+        <div class="btn-row">
+          <a href="./guide/index.html" class="btn-primary">AI活用ガイド</a>
+          <a href="./services/index.html" class="btn-secondary">サービスを見る</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Grid -->
+    <section class="section">
+      <div class="container">
+        <p class="section-label">WHAT WE DO</p>
+        <h2 class="section-title">TomoRevoにできること</h2>
+        <div class="card-grid card-grid-3 mt-24">
+          <a href="./guide/index.html" class="card">
+            <h3 class="feature-title">AI活用ガイド</h3>
+            <p class="feature-desc">非エンジニアのためのAI入門。ゲーム感覚で学べるレベルアップ型ガイド。</p>
+          </a>
+          <a href="./services/index.html" class="card">
+            <h3 class="feature-title">ITコーチング</h3>
+            <p class="feature-desc">あなたの「こうしたい」を引き出してITで形にする。LINE構築からAI導入まで。</p>
+          </a>
+          <div class="card">
+            <h3 class="feature-title">AI活用コミュニティ</h3>
+            <p class="feature-desc">非エンジニアのためのAI活用オープンチャット。気軽に質問・情報交換。</p>
+          </div>
+          <div class="card">
+            <h3 class="feature-title">事業オペレーション設計</h3>
+            <p class="feature-desc">業務フロー・予約・顧客管理の最適化。</p>
+          </div>
+          <div class="card">
+            <h3 class="feature-title">AI組織構築</h3>
+            <p class="feature-desc">企業専用のAIエージェント環境を構築。</p>
+          </div>
+          <div class="card">
+            <h3 class="feature-title">AI文化の定着・伴走</h3>
+            <p class="feature-desc">チーム全体へのAI活用浸透と継続サポート。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="section">
+      <div class="container">
+        <p class="section-label">ABOUT</p>
+        <h2 class="section-title">はじめまして、ユウジです</h2>
+        <p class="section-desc">パーソナルジム経営 × 元SE × コーチング × AI。「想いを持つ事業者」のIT課題を解決します。</p>
+        <div class="mt-24 text-center">
+          <a href="./about/index.html" class="btn-subtle">もっと詳しく →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container text-center">
+        <h2 class="section-title">AIの活用について、気軽に相談してください</h2>
+        <div class="btn-row mt-32">
+          <a href="./consultation/index.html" class="btn-primary">無料個別相談</a>
+          <a href="./contact/index.html" class="btn-subtle">質問・リクエスト</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script>
+  const sc=document.getElementById('hero-stars');if(sc){for(let i=0;i<35;i++){const s=document.createElement('div');s.className='hero-star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*70+'%';s.style.setProperty('--dur',(3+Math.random()*5)+'s');s.style.setProperty('--delay',Math.random()*4+'s');s.style.width=s.style.height=(Math.random()>.7?'2px':'1px');sc.appendChild(s);}}
+  </script>
+  <script src="./js/config.js"></script>
+  <script src="./js/components.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>序章 AIを使う前に押さえておきたい3つのこと | AI活用ガイド | TomoRevo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Zen+Maru+Gothic:wght@400;500;700;900&family=Shippori+Mincho:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .hero-dawn{position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(180deg,transparent 0%,rgba(240,160,80,0.03) 40%,rgba(240,160,80,0.06) 70%,rgba(240,130,60,0.08) 100%);z-index:0}
+    .hero-stars{position:absolute;inset:0;z-index:0}
+    .hero-star{position:absolute;width:1px;height:1px;background:#fff;border-radius:50%;animation:twinkle var(--dur,4s) var(--delay,0s) ease-in-out infinite alternate}
+    @keyframes twinkle{0%{opacity:.15}100%{opacity:.7}}
+    .progress-bar-wrap{position:fixed;top:0;left:0;right:0;z-index:200;height:3px;background:rgba(255,255,255,0.04)}
+    .progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .15s}
+    .chapter-progress{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;color:var(--text-d);letter-spacing:1px;margin-top:12px}
+    .chapter-progress span{color:var(--accent);font-weight:600}
+    .point-number{font-family:var(--font-ui);font-size:11px;font-weight:700;color:var(--accent);letter-spacing:2px;margin-bottom:8px}
+    .point-title{font-family:var(--font-head);font-size:18px;font-weight:700;margin-bottom:12px}
+    .point-body{font-size:14px;color:var(--text-s);line-height:1.9}
+    .point-body strong{color:var(--text);font-weight:700}
+    .data-list{margin:16px 0;padding:0}
+    .data-list-title{font-size:13px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+    .data-list-title.ok{color:var(--success)}
+    .data-list-title.ng{color:#f07070}
+    .data-list ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:4px}
+    .data-list li{font-size:13px;color:var(--text-s);line-height:1.7;padding:6px 0 6px 20px;position:relative;border-bottom:1px solid var(--border)}
+    .data-list li:last-child{border-bottom:none}
+    .data-list li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:50%}
+    .data-list.ok-list li::before{background:var(--success)}
+    .data-list.ng-list li::before{background:#f07070}
+    .tip-box{padding:16px 18px;background:rgba(80,176,240,0.04);border:1px solid rgba(80,176,240,0.08);border-radius:var(--r);margin:16px 0;font-size:13px;color:var(--accent2);line-height:1.8}
+    .tip-box strong{color:var(--text);font-weight:700}
+    .closing-section{text-align:center;padding:40px 0}
+    .closing-text{font-size:15px;color:var(--text-s);line-height:1.9;max-width:520px;margin:0 auto}
+    .ch-footer{display:flex;flex-direction:column;gap:12px;padding:40px 0;border-top:1px solid var(--border)}
+    .ch-footer-next{text-align:center}
+    .ch-footer-cta{text-align:center;padding:20px;background:var(--bg-card);border-radius:var(--r-lg);border:1px solid var(--border)}
+    .ch-footer-cta p{font-size:13px;color:var(--text-s);margin-bottom:8px}
+    .ch-footer-req{text-align:center;margin-top:4px}
+    .ch-footer-req a{font-size:12px;color:var(--text-d)}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+  </style>
+</head>
+<body>
+  <div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+
+  <header class="site-header" id="site-header"></header>
+
+  <section class="hero">
+    <div class="hero-dawn"></div>
+    <div class="hero-stars" id="hero-stars"></div>
+    <div class="hero-content">
+      <p class="hero-level">— PROLOGUE —</p>
+      <h1 class="hero-title">AIを使う前に<br>押さえておきたい3つのこと</h1>
+      <p class="hero-desc">安心して始めるために、最初に知っておきたいポイント</p>
+      <div class="chapter-progress"><span>序章</span> / 全5章+実践編</div>
+    </div>
+    <div class="hero-scroll">↓ scroll</div>
+  </section>
+
+  <main>
+    <!-- 導入 -->
+    <section class="section">
+      <div class="container">
+        <p class="section-desc" style="font-size:15px;line-height:1.9;max-width:600px">AIを事業に取り入れてみたい。でも「情報を入れて大丈夫なのか」「何から始めれば」と迷う方は多いです。<br><br>3つだけ押さえておけば、安心して始められます。</p>
+      </div>
+    </section>
+
+    <!-- ポイント1 -->
+    <section class="section section-bg">
+      <div class="container">
+        <div class="card">
+          <p class="point-number">POINT 01</p>
+          <h2 class="point-title">無料で、今すぐ始められる</h2>
+          <div class="point-body">
+            <p>ChatGPT、Gemini、Claude。いずれも無料プランがあり、アカウントを作ればすぐ使えます。</p>
+            <p style="margin-top:12px">有料プランとの違いは回数制限や一部機能の差くらい。まず無料で触ってみて、物足りなくなったら検討すれば十分です。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ポイント2 -->
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <p class="point-number">POINT 02</p>
+          <h2 class="point-title">入れていいもの、入れないものを知っておく</h2>
+          <div class="point-body">
+            <p>AIに入力したデータは、サービスの改善に使われる可能性があります。2023年にはChatGPTで他ユーザーの会話が一部表示されるバグも起きました。</p>
+            <p style="margin-top:12px">ただ、線引きはシンプルです。</p>
+
+            <div class="data-list ok-list" style="margin-top:20px">
+              <p class="data-list-title ok">入れていいもの</p>
+              <ul>
+                <li>業務の一般的な相談（「提案書の構成を考えて」「この文章を添削して」）</li>
+                <li>自社サービスの説明文やSNS投稿の下書き</li>
+              </ul>
+            </div>
+
+            <div class="data-list ng-list" style="margin-top:16px">
+              <p class="data-list-title ng">入れないもの</p>
+              <ul>
+                <li>個人情報（氏名・住所・電話番号・顔写真）</li>
+                <li>ID・パスワード、クレジットカード番号、銀行口座</li>
+                <li>会社の機密情報、顧客の個人情報</li>
+              </ul>
+            </div>
+
+            <div class="tip-box" style="margin-top:20px">
+              <strong>迷ったら「ダミー情報に置き換えられないか」を考えてみてください。</strong><br>
+              「年商3,000万円の美容サロン」を「年商○○円の美容系事業」とぼかすだけで、十分使える回答が返ってきます。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ポイント3 -->
+    <section class="section section-bg">
+      <div class="container">
+        <div class="card">
+          <p class="point-number">POINT 03</p>
+          <h2 class="point-title">AIの回答は「叩き台」として受け取る</h2>
+          <div class="point-body">
+            <p>AIは膨大なテキストのパターンから「次に来そうな言葉」を予測して文章を作っています。本を開いて確認したり、裏を取ったりはしていません。</p>
+            <p style="margin-top:12px">テストで分からない問題にそれらしい答えを書くのと同じ。これを<strong>「ハルシネーション（もっともらしいウソ）」</strong>と呼びます。</p>
+            <p style="margin-top:12px">特に<strong>医療・税金・法律・最新データ</strong>は、AIの回答をそのまま信じず公式サイトや専門家に確認してください。</p>
+
+            <div class="tip-box" style="margin-top:20px">
+              AIは「下調べの整理」「選択肢の洗い出し」「文章の叩き台づくり」が得意な存在です。<br><br>
+              <strong>最終判断は自分でする。</strong>この距離感さえ持っていれば、心強い仕事のパートナーになります。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 締め -->
+    <section class="section">
+      <div class="container">
+        <div class="closing-section">
+          <p class="closing-text">この3つを押さえたら、準備は完了です。<br>次の章から、実際の事業でどう使えるかを見ていきます。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 章末フッター -->
+    <div class="ch-footer container">
+      <div class="ch-footer-next">
+        <a href="../1/index.html" class="btn-primary">次の章へ → 第1章 提案書・SNS・壁打ち</a>
+      </div>
+      <div class="ch-footer-cta">
+        <p>自分の事業にどう活かすか相談したい方は</p>
+        <a href="../../consultation/index.html" class="btn-subtle">無料個別相談を予約する</a>
+      </div>
+      <div class="ch-footer-req">
+        <a href="../../contact/index.html">このガイドへの質問・リクエストはこちら</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded',()=>{
+    // Stars
+    const sc=document.getElementById('hero-stars');
+    if(sc){for(let i=0;i<40;i++){const s=document.createElement('div');s.className='hero-star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*70+'%';s.style.setProperty('--dur',(3+Math.random()*5)+'s');s.style.setProperty('--delay',Math.random()*4+'s');s.style.width=s.style.height=(Math.random()>.7?'2px':'1px');sc.appendChild(s);}}
+    // Progress bar (scroll-based)
+    window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';});
+  });
+  </script>
+  <script src="../../js/config.js"></script>
+  <script src="../../js/components.js"></script>
+</body>
+</html>

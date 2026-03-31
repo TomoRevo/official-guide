@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第2章 そのまま使える実践テンプレート5選 | AI活用ガイド | TomoRevo</title>
+  <meta name="description" content="事業者向けAI活用テンプレート5選。提案メール・SNS投稿・競合リサーチ・キャッチコピー・顧客対応。コピペで使える。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Zen+Maru+Gothic:wght@400;500;700;900&family=Shippori+Mincho:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .hero-dawn{position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(180deg,transparent 0%,rgba(240,160,80,0.03) 40%,rgba(240,160,80,0.06) 70%,rgba(240,130,60,0.08) 100%);z-index:0}
+    .hero-stars{position:absolute;inset:0;z-index:0}
+    .hero-star{position:absolute;width:1px;height:1px;background:#fff;border-radius:50%;animation:twinkle var(--dur,4s) var(--delay,0s) ease-in-out infinite alternate}
+    @keyframes twinkle{0%{opacity:.15}100%{opacity:.7}}
+    .progress-bar-wrap{position:fixed;top:0;left:0;right:0;z-index:200;height:3px;background:rgba(255,255,255,0.04)}
+    .progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .15s}
+    .chapter-progress{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;color:var(--text-d);letter-spacing:1px;margin-top:12px}
+    .chapter-progress span{color:var(--accent);font-weight:600}
+    .prompt-block{position:relative;margin:20px 0;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+    .prompt-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:rgba(255,255,255,0.02);border-bottom:1px solid var(--border)}
+    .prompt-label{font-family:var(--font-ui);font-size:9px;font-weight:600;color:var(--accent);letter-spacing:2px}
+    .prompt-copy{padding:5px 12px;border-radius:var(--r);font-size:11px;font-weight:700;border:1px solid var(--border);color:var(--text-s);cursor:pointer;transition:all .2s;background:transparent}
+    .prompt-copy:hover{border-color:var(--border-g);color:var(--text)}
+    .prompt-copy.copied{background:var(--success-g);color:var(--success);border-color:rgba(80,232,154,0.15)}
+    .prompt-text{padding:16px;font-family:var(--font-mono);font-size:12px;color:var(--text-s);line-height:1.7;white-space:pre-wrap;word-break:break-all;overflow-x:auto}
+    .ai-output{margin:20px 0;background:var(--bg-card);border:1px solid var(--border-g);border-radius:var(--r-lg);overflow:hidden}
+    .ai-output-header{padding:10px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+    .ai-output-dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+    .ai-output-label{font-family:var(--font-ui);font-size:9px;font-weight:600;color:var(--text-d);letter-spacing:2px}
+    .ai-output-body{padding:18px;font-size:13px;color:var(--text-s);line-height:1.9}
+    .ai-output-body strong{color:var(--text);font-weight:700}
+    .ai-output-body ul{padding-left:20px;margin:8px 0}
+    .ai-output-body li{margin-bottom:6px}
+    .ai-table-wrap{overflow-x:auto;margin:12px 0}
+    .ai-table{width:100%;border-collapse:collapse;font-size:12px}
+    .ai-table th{background:rgba(240,160,80,0.06);color:var(--accent);font-weight:700;text-align:left;padding:10px 12px;border-bottom:1px solid var(--border-g);font-size:11px}
+    .ai-table td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text-s);line-height:1.6;vertical-align:top}
+    .ai-table tr:last-child td{border-bottom:none}
+    .tip-box{padding:16px 18px;background:rgba(80,176,240,0.04);border:1px solid rgba(80,176,240,0.08);border-radius:var(--r);margin:16px 0;font-size:13px;color:var(--accent2);line-height:1.8}
+    .tip-box strong{color:var(--text);font-weight:700}
+    .tmpl-number{font-family:var(--font-ui);font-size:11px;font-weight:700;color:var(--accent);letter-spacing:2px;margin-bottom:8px}
+    .tmpl-title{font-family:var(--font-head);font-size:18px;font-weight:700;margin-bottom:8px}
+    .tmpl-desc{font-size:14px;color:var(--text-s);line-height:1.9;margin-bottom:4px}
+    .tmpl-point{font-size:13px;color:var(--text-d);line-height:1.7;margin-top:12px;padding:12px 16px;background:var(--bg-s);border-radius:var(--r);border:1px solid var(--border)}
+    .tmpl-point strong{color:var(--text-s)}
+    .action-quest{padding:28px 24px;border-radius:var(--r-xl);margin:32px 0;background:var(--bg-s);border:1px solid var(--border-g);position:relative;overflow:hidden}
+    .action-quest::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent));background-size:200% 100%;animation:shimmer 3s linear infinite}
+    @keyframes shimmer{to{background-position:-200% 0}}
+    .aq-label{font-family:var(--font-ui);font-size:10px;font-weight:700;color:var(--accent);letter-spacing:3px;margin-bottom:10px}
+    .aq-title{font-family:var(--font-head);font-size:17px;font-weight:700;margin-bottom:4px}
+    .aq-desc{font-size:13px;color:var(--text-s);margin-bottom:16px}
+    .action-checkbox-wrapper{margin-top:16px}
+    .action-checkbox-label{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;font-weight:700;padding:10px 18px;border-radius:var(--r);border:1.5px solid var(--border);transition:all .3s}
+    .action-checkbox-label .check-box{width:20px;height:20px;border-radius:5px;border:1.5px solid var(--text-d);display:flex;align-items:center;justify-content:center;transition:all .2s}
+    .action-checkbox-label.checked .check-box{background:linear-gradient(135deg,var(--accent),var(--accent2));border-color:transparent}
+    .action-checkbox-label.checked .check-box::after{content:'\2713';color:#0b0d12;font-size:13px;font-weight:900}
+    .action-checkbox-label.checked{border-color:rgba(240,160,80,0.2)}
+    input[type="checkbox"].sr-only{position:absolute;opacity:0;pointer-events:none}
+    .done-message{display:none;padding:20px;text-align:center;margin-top:16px;background:var(--success-g);border:1px solid rgba(80,232,154,0.15);border-radius:var(--r-lg)}
+    .done-message.show{display:block;animation:fadeUp .4s ease}
+    .done-title{font-size:14px;font-weight:700;color:var(--success)}
+    .done-sub{font-size:13px;color:var(--text-s);margin-top:6px}
+    .bridge-box{margin-top:28px;padding:20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg)}
+    .bridge-box p{font-size:14px;color:var(--text-s);line-height:1.9}
+    .bridge-box strong{color:var(--text)}
+    .ch-footer{display:flex;flex-direction:column;gap:12px;padding:40px 0;border-top:1px solid var(--border)}
+    .ch-footer-next{text-align:center}
+    .ch-footer-cta{text-align:center;padding:20px;background:var(--bg-card);border-radius:var(--r-lg);border:1px solid var(--border)}
+    .ch-footer-cta p{font-size:13px;color:var(--text-s);margin-bottom:8px}
+    .ch-footer-req{text-align:center;margin-top:4px}
+    .ch-footer-req a{font-size:12px;color:var(--text-d)}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+  </style>
+</head>
+<body>
+  <div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+
+  <header class="site-header" id="site-header"></header>
+
+  <section class="hero">
+    <div class="hero-dawn"></div>
+    <div class="hero-stars" id="hero-stars"></div>
+    <div class="hero-content">
+      <p class="hero-level">— CHAPTER 02 —</p>
+      <h1 class="hero-title">そのまま使える<br>実践テンプレート5選</h1>
+      <p class="hero-desc">この章を読むと、あなたの「何を聞けばいいかわからない」が<br>「コピペして事業名を入れるだけ」に変わります。</p>
+      <p style="font-family:var(--font-mono);font-size:10px;color:var(--text-d);letter-spacing:1.5px">読了目安：5分</p>
+      <div class="chapter-progress"><span>第2章</span> / 全5章+実践編</div>
+    </div>
+    <div class="hero-scroll">↓ scroll</div>
+  </section>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <p class="section-desc" style="font-size:15px;line-height:1.9;max-width:600px">AIは優秀なパートナーだけど、白紙の状態から「何か聞いて」と言われても、手が止まる。これは当然のことで、あなたの能力の問題ではない。</p>
+        <p class="section-desc" style="font-size:14px;line-height:1.9;max-width:600px;margin-top:12px">料理でいえば、レシピがあれば作れるのに、「何か作って」と言われると困るのと同じ。まずはレシピ（テンプレート）を手に入れて、そのまま使ってみる。それが一番早い。</p>
+        <p class="section-desc" style="font-size:14px;line-height:1.9;max-width:600px;margin-top:12px">ここでは、事業を運営しているあなたが<strong>今日から使える5つのテンプレート</strong>を用意しました。やることはシンプル。<strong>【 】</strong>の部分を自分の事業に合わせて書き換えて、AIに送るだけ。</p>
+        <div class="tip-box" style="margin-top:20px">スライド資料を作るときにも同じ原則が使えます。「10枚のスライドを一気に作って」と頼むと処理が多すぎて質が落ちる。「まず構成を作って」→「1枚目を作って」と分けて進めるのがコツ。テンプレートも同じで、1つずつ試して感覚をつかむのが一番確実です。</div>
+      </div>
+    </section>
+
+    <!-- Template 1 -->
+    <section class="section section-bg">
+      <div class="container">
+        <p class="tmpl-number">TEMPLATE 01</p>
+        <h2 class="tmpl-title">クライアントへの提案メール</h2>
+        <p class="tmpl-desc">伝えたいことはあるのに文章にまとめる時間がない。要点だけ箇条書きにしてAIに渡せば、丁寧なメールが数秒で仕上がる。</p>
+        <div class="prompt-block">
+          <div class="prompt-header"><span class="prompt-label">プロンプト（AIへの指示文）</span><button class="prompt-copy" onclick="copyPrompt(this)">コピーする</button></div>
+          <div class="prompt-text">以下の情報をもとに、クライアントへの提案メールを作成してください。
+
+■ 送信者の業種: 【例: パーソナルトレーニングジム】
+■ サービス名: 【例: STAY GOLD パーソナルトレーニング】
+■ 送り先: 【例: 法人の福利厚生担当者】
+■ 提案内容: 【例: 従業員向け健康プログラムの導入提案】
+■ 相手のメリット: 【例: 従業員の健康増進による生産性向上、医療費削減】
+■ トーン: 【丁寧 / カジュアル / フォーマル】
+■ メールの長さ: 【200字程度 / 400字程度】
+
+件名も含めて作成してください。
+押し売りにならず、相手の課題解決を起点にした構成にしてください。</div>
+        </div>
+        <div class="ai-output">
+          <div class="ai-output-header"><span class="ai-output-dot"></span><span class="ai-output-label">AIの回答</span></div>
+          <div class="ai-output-body">
+            <strong>件名: 従業員の皆様の健康づくりをサポートするプログラムのご提案</strong>
+            <p style="margin-top:10px">株式会社〇〇 福利厚生ご担当者様</p>
+            <p style="margin-top:8px">はじめまして。パーソナルトレーニングジム「STAY GOLD」の藤田と申します。</p>
+            <p style="margin-top:8px">貴社の従業員様の健康増進に貢献できるプログラムをご用意しており、ご検討いただけないかと思いご連絡いたしました。</p>
+            <p style="margin-top:8px">当プログラムでは、一人ひとりの体力レベルに合わせた個別指導を行い、継続しやすい仕組みを整えております。導入企業様からは「欠勤率が下がった」「社内の雰囲気が明るくなった」といったお声をいただいております。</p>
+            <p style="margin-top:8px">まずは15分ほどのオンラインでのご説明の機会をいただけましたら幸いです。ご都合のよい日時をお知らせいただけますでしょうか。</p>
+            <p style="margin-top:8px">何卒よろしくお願いいたします。</p>
+          </div>
+        </div>
+        <div class="tmpl-point"><strong>ポイント:</strong> 「送り先」と「相手のメリット」を変えるだけで、まったく違うメールが出てくる。誰向けのメールかを伝えるだけで、言葉遣いも構成も変わる。</div>
+      </div>
+    </section>
+
+    <!-- Template 2 -->
+    <section class="section">
+      <div class="container">
+        <p class="tmpl-number">TEMPLATE 02</p>
+        <h2 class="tmpl-title">SNS投稿文の生成</h2>
+        <p class="tmpl-desc">SNSの投稿、毎回ゼロから考えるのは地味に時間がかかる。ターゲットとトーンを指定するだけで、そのまま使える投稿文が手に入る。</p>
+        <div class="prompt-block">
+          <div class="prompt-header"><span class="prompt-label">プロンプト（AIへの指示文）</span><button class="prompt-copy" onclick="copyPrompt(this)">コピーする</button></div>
+          <div class="prompt-text">以下の条件でSNS投稿文を作成してください。
+
+■ 投稿するSNS: 【Instagram / X（Twitter）/ LINE公式】
+■ 業種: 【例: ネイルサロン】
+■ ターゲット: 【例: 30代の働く女性、仕事帰りに自分へのご褒美を求めている】
+■ 投稿の目的: 【認知拡大 / 来店促進 / 信頼構築】
+■ 伝えたい内容: 【例: 新しい春デザインが入荷した】
+■ トーン: 【親しみやすい / 上品 / 元気】
+■ 文字数: 【150字以内 / 300字以内】
+■ ハッシュタグ: 【つける（5個程度） / つけない】
+
+「売り込み感」が出ないように、共感や日常の一場面から入る構成にしてください。</div>
+        </div>
+        <div class="ai-output">
+          <div class="ai-output-header"><span class="ai-output-dot"></span><span class="ai-output-label">AIの回答</span></div>
+          <div class="ai-output-body">
+            <p>仕事終わり、電車のなかで自分の指先を見て<br>「そろそろ変えたいな」って思う瞬間、ありませんか。</p>
+            <p style="margin-top:10px">春の新作デザイン、入りました。<br>今季は淡いラベンダーとシアーなベージュが人気です。</p>
+            <p style="margin-top:10px">頑張った自分に、指先から小さなご褒美を。<br>プロフィールのリンクからご予約いただけます。</p>
+            <p style="margin-top:10px;color:var(--accent2)">#ネイルデザイン #春ネイル #ご褒美ネイル #大阪ネイルサロン #新作デザイン</p>
+          </div>
+        </div>
+        <div class="tmpl-point"><strong>ポイント:</strong> 「投稿の目的」を変えると構成がガラッと変わる。認知拡大なら共感重視、来店促進ならCTA（行動喚起）重視の文面になる。</div>
+      </div>
+    </section>
+
+    <!-- Template 3 -->
+    <section class="section section-bg">
+      <div class="container">
+        <p class="tmpl-number">TEMPLATE 03</p>
+        <h2 class="tmpl-title">競合リサーチ＆差別化整理</h2>
+        <p class="tmpl-desc">自分のサービスと競合を比べたいけど、リサーチに何時間もかけていられない。AIに整理させれば、自分の立ち位置が一目でわかる。</p>
+        <div class="prompt-block">
+          <div class="prompt-header"><span class="prompt-label">プロンプト（AIへの指示文）</span><button class="prompt-copy" onclick="copyPrompt(this)">コピーする</button></div>
+          <div class="prompt-text">以下の情報をもとに、競合との差別化ポイントを整理してください。
+
+■ 自分のサービス: 【例: 個人事業主向けのAI活用コンサルティング】
+■ 自分の強み: 【例: IT企業出身＋対面での店舗事業経験があり、現場の悩みがわかる】
+■ ターゲット: 【例: IT苦手な個人事業主・小規模事業者】
+■ 競合として意識しているサービス（わかる範囲で）:
+  - 【例: 大手ITスクールのAI講座】
+  - 【例: フリーランスのAIコンサル】
+  - 【例: YouTube等の無料AI情報】
+■ 比較したい観点: 【価格 / サポート体制 / カリキュラムの実践度 / 対象者の層】
+
+以下の形式で出力してください:
+1. 比較表（表形式）
+2. 自分のサービスが選ばれる理由（3つ）
+3. 競合にあって自分にない要素（弱みの認識）</div>
+        </div>
+        <div class="ai-output">
+          <div class="ai-output-header"><span class="ai-output-dot"></span><span class="ai-output-label">AIの回答</span></div>
+          <div class="ai-output-body">
+            <div class="ai-table-wrap">
+              <table class="ai-table">
+                <thead><tr><th>観点</th><th>自分のサービス</th><th>大手ITスクール</th><th>フリーランスAIコンサル</th><th>YouTube無料情報</th></tr></thead>
+                <tbody>
+                  <tr><td>価格帯</td><td>月額制（中価格）</td><td>高額（数十万〜）</td><td>案件単位（中〜高）</td><td>無料</td></tr>
+                  <tr><td>サポート</td><td>1対1の伴走型</td><td>集団講義+質問対応</td><td>案件ベース</td><td>なし</td></tr>
+                  <tr><td>実践度</td><td>受講者の実業務で即使う</td><td>汎用カリキュラム</td><td>高い（案件次第）</td><td>自分次第</td></tr>
+                  <tr><td>対象者</td><td>IT苦手な事業主</td><td>幅広い</td><td>IT理解ある層</td><td>全般</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="margin-top:14px"><strong>選ばれる理由:</strong></p>
+            <ul>
+              <li>店舗経営の経験があるため、現場の「ITどころじゃない」感覚を理解している</li>
+              <li>汎用的な教材ではなく、その人の事業に合わせたAI活用を一緒に設計する</li>
+              <li>「教える」のではなく伴走する。わからないときにすぐ聞ける距離感</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tmpl-point"><strong>ポイント:</strong> 自分の強みは自分では言語化しにくい。AIに客観的に整理させることで、営業や発信の場面でブレずに伝えられるようになる。</div>
+      </div>
+    </section>
+
+    <!-- Template 4 -->
+    <section class="section">
+      <div class="container">
+        <p class="tmpl-number">TEMPLATE 04</p>
+        <h2 class="tmpl-title">サービス紹介文・キャッチコピー</h2>
+        <p class="tmpl-desc">ホームページ、チラシ、SNSのプロフィール。サービスの紹介文を書く場面は多いのに、自分のことほど書きにくい。</p>
+        <div class="prompt-block">
+          <div class="prompt-header"><span class="prompt-label">プロンプト（AIへの指示文）</span><button class="prompt-copy" onclick="copyPrompt(this)">コピーする</button></div>
+          <div class="prompt-text">以下の情報をもとに、サービス紹介文とキャッチコピーを作成してください。
+
+■ サービス名: 【例: ITコーチング by TomoRevo】
+■ 何をするサービスか: 【例: IT苦手な事業主にAI活用を伴走型でサポートする】
+■ ターゲット: 【例: 1人で何役もこなしている個人事業主・小規模経営者】
+■ ターゲットの悩み: 【例: AIに興味はあるけど何から始めればいいかわからない、時間がない】
+■ このサービスを受けた後の変化: 【例: 日常業務の一部をAIに任せられるようになり、本来やりたい仕事に集中できる】
+■ 使用場所: 【ホームページ / チラシ / SNSプロフィール】
+■ トーン: 【信頼感重視 / 親しみやすさ重視 / 挑戦的】
+
+以下を出力してください:
+1. キャッチコピー（3案）— 各15字以内
+2. サービス紹介文（200字以内）
+3. サービス紹介文（80字以内・SNS用）</div>
+        </div>
+        <div class="ai-output">
+          <div class="ai-output-header"><span class="ai-output-dot"></span><span class="ai-output-label">AIの回答</span></div>
+          <div class="ai-output-body">
+            <strong>キャッチコピー案:</strong>
+            <ul style="list-style:none;padding-left:0">
+              <li style="padding:6px 0">1. AIを、あなたの右腕に。</li>
+              <li style="padding:6px 0">2. 苦手なITは、任せる時代へ。</li>
+              <li style="padding:6px 0">3. 経営に集中できる毎日を。</li>
+            </ul>
+            <strong style="display:block;margin-top:14px">サービス紹介文（200字）:</strong>
+            <p style="margin-top:6px">「AIを使いたいけど、何から手をつければいいかわからない」そんな事業主の方に、あなたの事業に合ったAI活用を一緒に設計し、導入まで伴走するサービスです。汎用的な講座ではなく、あなたの日常業務を起点に、実際に使える形でAIを組み込みます。メール作成、リサーチ、資料づくり——毎日の「これ、時間かかるな」が、数分に変わる体験を。</p>
+            <strong style="display:block;margin-top:14px">SNS用（80字）:</strong>
+            <p style="margin-top:6px">IT苦手な事業主に、AI活用を伴走サポート。あなたの事業に合わせて、日常業務にAIを組み込みます。</p>
+          </div>
+        </div>
+        <div class="tmpl-point"><strong>ポイント:</strong> 「使用場所」を変えれば、同じサービスでもホームページ向けの丁寧な文章と、SNS向けの短い文章の両方が手に入る。</div>
+      </div>
+    </section>
+
+    <!-- Template 5 -->
+    <section class="section section-bg">
+      <div class="container">
+        <p class="tmpl-number">TEMPLATE 05</p>
+        <h2 class="tmpl-title">顧客対応の定型文</h2>
+        <p class="tmpl-desc">問い合わせへの返信、お礼のメッセージ、お断りの連絡。毎回ゼロから書くと時間もかかるし、気も使う。テンプレートを用意しておけば、質を保ちながら対応スピードが上がる。</p>
+        <div class="prompt-block">
+          <div class="prompt-header"><span class="prompt-label">プロンプト（AIへの指示文）</span><button class="prompt-copy" onclick="copyPrompt(this)">コピーする</button></div>
+          <div class="prompt-text">以下の条件で、顧客対応の定型文を作成してください。
+
+■ 業種: 【例: パーソナルトレーニングジム】
+■ 場面: 【問い合わせ返信 / 来店後のお礼 / 予約変更の案内 / お断り】
+■ 連絡手段: 【メール / LINE / DM】
+■ 相手: 【新規の問い合わせ客 / 既存の顧客 / 紹介経由の方】
+■ 伝えたい内容: 【例: 体験レッスンの日程案内と持ち物の連絡】
+■ トーン: 【温かみのある丁寧語 / ビジネスライク / フランク】
+■ 補足: 【例: 初回は手ぶらでOKということも伝えたい】
+
+短すぎず長すぎず、相手が安心できる文面にしてください。</div>
+        </div>
+        <div class="ai-output">
+          <div class="ai-output-header"><span class="ai-output-dot"></span><span class="ai-output-label">AIの回答 — 問い合わせ返信</span></div>
+          <div class="ai-output-body">
+            <p>〇〇様</p>
+            <p style="margin-top:8px">お問い合わせいただきありがとうございます。<br>STAY GOLD パーソナルトレーニングの藤田です。</p>
+            <p style="margin-top:8px">体験レッスンのご希望、承りました。<br>以下の日程でご案内可能です。</p>
+            <p style="margin-top:8px">・4月5日（土）10:00〜<br>・4月7日（月）14:00〜<br>・4月9日（水）18:00〜</p>
+            <p style="margin-top:8px">所要時間は約60分です。<br>ウェアとシューズはこちらでご用意しておりますので、手ぶらでお越しいただけます。</p>
+            <p style="margin-top:8px">ご都合のよい日時をお知らせいただければ、ご予約を確定いたします。</p>
+            <p style="margin-top:8px">お会いできることを楽しみにしております。</p>
+          </div>
+        </div>
+        <div class="ai-output" style="margin-top:12px">
+          <div class="ai-output-header"><span class="ai-output-dot" style="background:#f07070"></span><span class="ai-output-label">AIの回答 — お断り</span></div>
+          <div class="ai-output-body">
+            <p>〇〇様</p>
+            <p style="margin-top:8px">ご連絡いただきありがとうございます。<br>ご提案の内容について検討いたしましたが、現在のサービス体制では十分なお力添えが難しい状況です。</p>
+            <p style="margin-top:8px">せっかくお声がけいただいたのに、ご期待に沿えず申し訳ございません。</p>
+            <p style="margin-top:8px">もし今後、状況が変わりましたらあらためてご相談させていただければ幸いです。</p>
+            <p style="margin-top:8px">引き続きどうぞよろしくお願いいたします。</p>
+          </div>
+        </div>
+        <div class="tmpl-point"><strong>ポイント:</strong> 「場面」を変えるだけで、お礼・案内・お断りなど様々な文面が出てくる。特にお断りの文面は気を使いすぎて時間がかかりがち。AIに土台を作ってもらい、自分の言葉で仕上げる。それだけで精神的な負担も作業時間も大幅に減る。</div>
+      </div>
+    </section>
+
+    <!-- Action + Bridge -->
+    <section class="section">
+      <div class="container">
+        <div class="action-quest">
+          <p class="aq-label">ACTION</p>
+          <h3 class="aq-title">5つのテンプレートのうち、1つだけ試してみてください</h3>
+          <p class="aq-desc">【 】の中身を自分の情報に差し替えて、ChatGPTやGeminiに送るだけ。1分もかかりません。</p>
+          <div class="action-checkbox-wrapper">
+            <input type="checkbox" id="action-cb" class="sr-only">
+            <label id="action-cb-label" class="action-checkbox-label"><span class="check-box"></span>試してみた</label>
+          </div>
+          <div class="done-message" id="done-msg">
+            <p class="done-title">テンプレートを1つ試せました</p>
+            <p class="done-sub">次は自分の事業に合わせて書き換えてみてください。</p>
+          </div>
+        </div>
+
+        <div class="bridge-box">
+          <p>ただし、ここで1つだけ予告しておくと——</p>
+          <p style="margin-top:8px">テンプレートをそのまま使ったときは「おっ、いい感じ」と思えたのに、自分の事業に合わせて書き換えたら<strong>「なんか微妙だな...」</strong>と感じることがある。</p>
+          <p style="margin-top:8px">それは、あなたの使い方が悪いわけではない。<br>次の<strong>第3章</strong>で、その「微妙」の正体と解決策を共有します。</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="ch-footer container">
+      <div class="ch-footer-next"><a href="#" class="btn-primary btn-disabled">次の章へ → 第3章 伝え方を変えるだけで、AIの出力は別物になる（Coming Soon）</a></div>
+      <div class="ch-footer-cta"><p>自分の事業にどう活かすか相談したい方は</p><a href="../../consultation/index.html" class="btn-subtle">無料個別相談を予約する</a></div>
+      <div class="ch-footer-req"><a href="../../contact/index.html">このガイドへの質問・リクエストはこちら</a></div>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded',()=>{
+    const sc=document.getElementById('hero-stars');
+    if(sc){for(let i=0;i<40;i++){const s=document.createElement('div');s.className='hero-star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*70+'%';s.style.setProperty('--dur',(3+Math.random()*5)+'s');s.style.setProperty('--delay',Math.random()*4+'s');s.style.width=s.style.height=(Math.random()>.7?'2px':'1px');sc.appendChild(s);}}
+    window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';});
+    // Checkbox
+    const lbl=document.getElementById('action-cb-label'),cb=document.getElementById('action-cb');
+    if(lbl&&cb){
+      if(localStorage.getItem('ch2_done')==='true'){lbl.classList.add('checked');cb.checked=true;document.getElementById('done-msg').classList.add('show');}
+      lbl.addEventListener('click',()=>{
+        const chk=lbl.classList.contains('checked');
+        if(chk){lbl.classList.remove('checked');cb.checked=false;localStorage.setItem('ch2_done','false');document.getElementById('done-msg').classList.remove('show');}
+        else{lbl.classList.add('checked');cb.checked=true;localStorage.setItem('ch2_done','true');document.getElementById('done-msg').classList.add('show');}
+      });
+    }
+  });
+  function copyPrompt(btn){const text=btn.closest('.prompt-block').querySelector('.prompt-text').textContent;navigator.clipboard.writeText(text).then(()=>{btn.textContent='コピーしました';btn.classList.add('copied');setTimeout(()=>{btn.textContent='コピーする';btn.classList.remove('copied');},2000);});}
+  </script>
+  <script src="../../js/config.js"></script>
+  <script src="../../js/components.js"></script>
+</body>
+</html>

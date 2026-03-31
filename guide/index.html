@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI活用ガイド | TomoRevo</title>
+  <meta name="description" content="ゲーム感覚で学べるAI入門。5分で読んで、5分で実践。どの章からでも始められます。">
+
+  <meta property="og:title" content="AI活用ガイド | TomoRevo">
+  <meta property="og:description" content="ゲーム感覚で学べるAI入門。5分で読んで、5分で実践。どの章からでも始められます。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Zen+Maru+Gothic:wght@400;500;700;900&family=Shippori+Mincho:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .hero-dawn{position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(180deg,transparent 0%,rgba(240,160,80,0.03) 40%,rgba(240,160,80,0.06) 70%,rgba(240,130,60,0.08) 100%);z-index:0}
+    .hero-stars{position:absolute;inset:0;z-index:0}
+    .hero-star{position:absolute;width:1px;height:1px;background:#fff;border-radius:50%;animation:twinkle var(--dur,4s) var(--delay,0s) ease-in-out infinite alternate}
+    @keyframes twinkle{0%{opacity:.15}100%{opacity:.7}}
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header"></header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-stars" id="hero-stars"></div>
+    <div class="hero-dawn"></div>
+    <div class="hero-content">
+      <p class="hero-level">AI GUIDE</p>
+      <h1 class="hero-title">AI活用ガイド</h1>
+      <p class="hero-desc">ゲーム感覚で学べるAI入門。<br>5分で読んで、5分で実践。どの章からでも始められます。</p>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- How to Use -->
+    <section class="section">
+      <div class="container">
+        <p class="section-label">HOW TO USE</p>
+        <h2 class="section-title">このガイドの使い方</h2>
+        <div class="card-grid card-grid-3 mt-24">
+          <div class="card text-center">
+            <div class="feature-icon" style="font-family:var(--font-ui);font-size:13px;font-weight:800;color:var(--accent)">5min</div>
+            <h3 class="feature-title">5分で読む</h3>
+            <p class="feature-desc">各章は5分で読める量。</p>
+          </div>
+          <div class="card text-center">
+            <div class="feature-icon" style="font-family:var(--font-ui);font-size:13px;font-weight:800;color:var(--accent)">ACT</div>
+            <h3 class="feature-title">やってみる</h3>
+            <p class="feature-desc">各章末のアクションで体験。</p>
+          </div>
+          <div class="card text-center">
+            <div class="feature-icon" style="font-family:var(--font-ui);font-size:13px;font-weight:800;color:var(--accent)">ANY</div>
+            <h3 class="feature-title">どこからでも</h3>
+            <p class="feature-desc">気になる章から自由に。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter List -->
+    <section class="section">
+      <div class="container">
+        <p class="section-label">CHAPTERS</p>
+        <h2 class="section-title">全チャプター</h2>
+
+        <div class="chapter-list mt-24">
+          <!-- Prologue -->
+          <a href="./0/index.html" class="chapter-link available">
+            <div class="chapter-lv" style="font-size:10px">序</div>
+            <div class="chapter-link-info">
+              <p class="chapter-link-title">AIを使う前に押さえておきたい3つのこと</p>
+              <p class="chapter-link-sub">無料で始められる / 業務データの線引き / 叩き台として使う</p>
+              <p class="chapter-link-action">2分で読める</p>
+            </div>
+            <span class="chapter-link-arrow">→</span>
+          </a>
+
+          <!-- Chapter 1 -->
+          <a href="./1/index.html" class="chapter-link available">
+            <div class="chapter-lv">1</div>
+            <div class="chapter-link-info">
+              <p class="chapter-link-title">提案書・SNS・壁打ち — 事業のスピードが変わる3つの場面</p>
+              <p class="chapter-link-sub">実際のプロンプトと出力例で、ビフォーアフターを体感</p>
+              <p class="chapter-link-action">5分で読める</p>
+            </div>
+            <span class="chapter-link-arrow">→</span>
+          </a>
+
+          <!-- Chapter 2 -->
+          <a href="./2/index.html" class="chapter-link available">
+            <div class="chapter-lv">2</div>
+            <div class="chapter-link-info">
+              <p class="chapter-link-title">そのまま使える実践テンプレート5選</p>
+              <p class="chapter-link-sub">コピペして事業名を入れるだけ。今日から試せる</p>
+              <p class="chapter-link-action">5分で読める</p>
+            </div>
+            <span class="chapter-link-arrow">→</span>
+          </a>
+
+          <!-- Chapter 3 -->
+          <a href="#" class="chapter-link available">
+            <div class="chapter-lv">3</div>
+            <div class="chapter-link-info">
+              <p class="chapter-link-title">伝え方を変えるだけで、AIの出力は別物になる</p>
+              <p class="chapter-link-sub">同じ相談でも伝え方で結果が激変する。4つのコツ</p>
+              <p class="chapter-link-action">Coming Soon</p>
+            </div>
+            <span class="chapter-link-arrow">→</span>
+          </a>
+
+          <!-- Chapter 4 -->
+          <a href="#" class="chapter-link available">
+            <div class="chapter-lv">4</div>
+            <div class="chapter-link-info">
+              <p class="chapter-link-title">AIに自分の事業を覚えさせる</p>
+              <p class="chapter-link-sub">背景情報を伝えるだけで、回答の質が劇的に変わる</p>
+              <p class="chapter-link-action">Coming Soon</p>
+            </div>
+            <span class="chapter-link-arrow">→</span>
+          </a>
+
+          <!-- Chapter 5 -->
+          <a href="#" class="chapter-link available">
+            <div class="chapter-lv">5</div>
+            <div class="chapter-link-info">
+              <p class="chapter-link-title">毎週1つ、AIに任せる仕事を増やす</p>
+              <p class="chapter-link-sub">無理なく定着させる実践チャレンジ</p>
+              <p class="chapter-link-action">Coming Soon</p>
+            </div>
+            <span class="chapter-link-arrow">→</span>
+          </a>
+
+          <!-- 実践編 -->
+          <a href="#" class="chapter-link available">
+            <div class="chapter-lv" style="font-size:10px">実践</div>
+            <div class="chapter-link-info">
+              <p class="chapter-link-title">業種別レシピ集</p>
+              <p class="chapter-link-sub">リクエストに応じて追加。あなたの業種でも使える</p>
+              <p class="chapter-link-action">Coming Soon</p>
+            </div>
+            <span class="chapter-link-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container text-center">
+        <p style="font-size:15px;font-weight:600;margin-bottom:16px;">AIの活用について相談してみませんか？</p>
+        <div class="btn-row">
+          <a href="../consultation/index.html" class="btn-primary">無料個別相談</a>
+          <a href="../contact/index.html" class="btn-subtle">質問・リクエスト</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script>
+  const sc=document.getElementById('hero-stars');if(sc){for(let i=0;i<35;i++){const s=document.createElement('div');s.className='hero-star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*70+'%';s.style.setProperty('--dur',(3+Math.random()*5)+'s');s.style.setProperty('--delay',Math.random()*4+'s');s.style.width=s.style.height=(Math.random()>.7?'2px':'1px');sc.appendChild(s);}}
+  </script>
+  <script src="../js/config.js"></script>
+  <script src="../js/components.js"></script>
+</body>
+</html>

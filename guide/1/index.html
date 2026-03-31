@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第1章 提案書・SNS・壁打ち | AI活用ガイド | TomoRevo</title>
+  <meta name="description" content="AIで事業のスピードが変わる3つの場面。提案書・SNS発信・壁打ちのビフォーアフターを実際のプロンプト付きで紹介。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Zen+Maru+Gothic:wght@400;500;700;900&family=Shippori+Mincho:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .hero-dawn{position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(180deg,transparent 0%,rgba(240,160,80,0.03) 40%,rgba(240,160,80,0.06) 70%,rgba(240,130,60,0.08) 100%);z-index:0}
+    .hero-stars{position:absolute;inset:0;z-index:0}
+    .hero-star{position:absolute;width:1px;height:1px;background:#fff;border-radius:50%;animation:twinkle var(--dur,4s) var(--delay,0s) ease-in-out infinite alternate}
+    @keyframes twinkle{0%{opacity:.15}100%{opacity:.7}}
+    .progress-bar-wrap{position:fixed;top:0;left:0;right:0;z-index:200;height:3px;background:rgba(255,255,255,0.04)}
+    .progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .15s}
+    .chapter-progress{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;color:var(--text-d);letter-spacing:1px;margin-top:12px}
+    .chapter-progress span{color:var(--accent);font-weight:600}
+    .ba-grid{display:grid;grid-template-columns:1fr;gap:12px;margin:20px 0}
+    @media(min-width:540px){.ba-grid{grid-template-columns:1fr 1fr}}
+    .ba-card{padding:18px;border-radius:var(--r-lg);border:1px solid var(--border);position:relative;overflow:hidden}
+    .ba-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+    .ba-card.before{background:rgba(240,112,112,0.03)}.ba-card.before::before{background:#f07070}
+    .ba-card.after{background:rgba(80,232,154,0.03)}.ba-card.after::before{background:var(--success)}
+    .ba-label{font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:2px;margin-bottom:8px}
+    .ba-card.before .ba-label{color:#f07070}
+    .ba-card.after .ba-label{color:var(--success)}
+    .ba-body{font-size:13px;color:var(--text-s);line-height:1.8}
+    .prompt-block{position:relative;margin:20px 0;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+    .prompt-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:rgba(255,255,255,0.02);border-bottom:1px solid var(--border)}
+    .prompt-label{font-family:var(--font-ui);font-size:9px;font-weight:600;color:var(--accent);letter-spacing:2px}
+    .prompt-copy{padding:5px 12px;border-radius:var(--r);font-size:11px;font-weight:700;border:1px solid var(--border);color:var(--text-s);cursor:pointer;transition:all .2s;background:transparent}
+    .prompt-copy:hover{border-color:var(--border-g);color:var(--text)}
+    .prompt-copy.copied{background:var(--success-g);color:var(--success);border-color:rgba(80,232,154,0.15)}
+    .prompt-text{padding:16px;font-family:var(--font-mono);font-size:12px;color:var(--text-s);line-height:1.7;white-space:pre-wrap;word-break:break-all;overflow-x:auto}
+    .ai-output{margin:20px 0;background:var(--bg-card);border:1px solid var(--border-g);border-radius:var(--r-lg);overflow:hidden}
+    .ai-output-header{padding:10px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+    .ai-output-dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+    .ai-output-label{font-family:var(--font-ui);font-size:9px;font-weight:600;color:var(--text-d);letter-spacing:2px}
+    .ai-output-body{padding:18px;font-size:13px;color:var(--text-s);line-height:1.9}
+    .ai-output-body strong{color:var(--text);font-weight:700}
+    .ai-output-body ol,.ai-output-body ul{padding-left:20px;margin:8px 0}
+    .ai-output-body li{margin-bottom:6px}
+    .ai-table-wrap{overflow-x:auto;margin:12px 0}
+    .ai-table{width:100%;border-collapse:collapse;font-size:12px}
+    .ai-table th{background:rgba(240,160,80,0.06);color:var(--accent);font-weight:700;text-align:left;padding:10px 12px;border-bottom:1px solid var(--border-g);font-size:11px;letter-spacing:0.5px}
+    .ai-table td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text-s);line-height:1.6;vertical-align:top}
+    .ai-table tr:last-child td{border-bottom:none}
+    .tip-box{padding:16px 18px;background:rgba(80,176,240,0.04);border:1px solid rgba(80,176,240,0.08);border-radius:var(--r);margin:16px 0;font-size:13px;color:var(--accent2);line-height:1.8}
+    .tip-box strong{color:var(--text);font-weight:700}
+    .scene-number{font-family:var(--font-ui);font-size:11px;font-weight:700;color:var(--accent);letter-spacing:2px;margin-bottom:8px}
+    .scene-title{font-family:var(--font-head);font-size:18px;font-weight:700;margin-bottom:12px}
+    .scene-body{font-size:14px;color:var(--text-s);line-height:1.9}
+    .scene-body strong{color:var(--text)}
+    .summary-list{display:flex;flex-direction:column;gap:8px;margin:16px 0}
+    .summary-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text-s);line-height:1.7}
+    .summary-arrow{color:var(--accent);font-weight:700;flex-shrink:0;margin-top:2px}
+    .ch-footer{display:flex;flex-direction:column;gap:12px;padding:40px 0;border-top:1px solid var(--border)}
+    .ch-footer-next{text-align:center}
+    .ch-footer-cta{text-align:center;padding:20px;background:var(--bg-card);border-radius:var(--r-lg);border:1px solid var(--border)}
+    .ch-footer-cta p{font-size:13px;color:var(--text-s);margin-bottom:8px}
+    .ch-footer-req{text-align:center;margin-top:4px}
+    .ch-footer-req a{font-size:12px;color:var(--text-d)}
+  </style>
+</head>
+<body>
+  <div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+
+  <header class="site-header" id="site-header"></header>
+
+  <section class="hero">
+    <div class="hero-dawn"></div>
+    <div class="hero-stars" id="hero-stars"></div>
+    <div class="hero-content">
+      <p class="hero-level">— CHAPTER 01 —</p>
+      <h1 class="hero-title">提案書・SNS・壁打ち<br>事業のスピードが変わる<br>3つの場面</h1>
+      <p class="hero-desc">この章を読むと、あなたの「時間が足りない」が<br>「やり方を変えるだけだった」に変わります。</p>
+      <p style="font-family:var(--font-mono);font-size:10px;color:var(--text-d);letter-spacing:1.5px">読了目安：5分</p>
+      <div class="chapter-progress"><span>第1章</span> / 全5章+実践編</div>
+    </div>
+    <div class="hero-scroll">↓ scroll</div>
+  </section>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <p class="section-desc" style="font-size:15px;line-height:1.9;max-width:600px">事業を回していると、1日に何役もこなすことになります。提案書を書いて、SNSを更新して、来月の方針を考えて。どれも大事なのに、どれも時間が足りない。</p>
+        <p class="section-desc" style="font-size:14px;line-height:1.9;max-width:600px;margin-top:12px">この章では、多くの事業者が時間を取られている3つのタスクを取り上げます。AIを使うとどう変わるか、実際のプロンプト（AIへの指示文）と出力例をセットでお見せします。</p>
+        <div class="tip-box" style="margin-top:20px">プロンプトは「完璧な書き方」を覚える必要はありません。まずはここに載っている例をそのままコピーして、自分の状況に書き換えるところから始めてみてください。</div>
+      </div>
+    </section>
+
+    <section class="section section-bg">
+      <div class="container">
+        <p class="scene-number">SCENE 01</p>
+        <h2 class="scene-title">提案書・見積書の作成</h2>
+        <div class="ba-grid">
+          <div class="ba-card before"><p class="ba-label">BEFORE</p><p class="ba-body">新しいクライアントへの提案書を作るたびに、ゼロから構成を考える。過去の資料を引っ張り出して、今回の案件に合わせて書き直す。気づけば2時間が経っている。</p></div>
+          <div class="ba-card after"><p class="ba-label">AFTER</p><p class="ba-body">AIに自分の事業内容と相手の課題を伝えれば、5分で叩き台が出てきます。あとは自分の言葉で仕上げるだけ。慣れると叩き台5分＋仕上げ15分くらいの感覚です。</p></div>
+        </div>
+        <div class="prompt-block">
+          <div class="prompt-header"><span class="prompt-label">プロンプト（AIへの指示文）</span><button class="prompt-copy" onclick="copyPrompt(this)">コピーする</button></div>
+          <div class="prompt-text">あなたは提案資料の構成を考えるアシスタントです。
+
+以下の条件で、提案書の構成案を作ってください。
+
+【自分の事業】
+パーソナルトレーニングジムを運営。個別指導歴8年。
+食事指導とトレーニングの両面からサポートしている。
+
+【提案先】
+地元の整骨院。院長から「患者さんの運動習慣づくりを一緒にできないか」と相談を受けた。
+
+【提案書に含めたいこと】
+- なぜ整骨院×パーソナルトレーニングの連携が有効か
+- 具体的な連携の仕組み（紹介フロー、料金の考え方）
+- 3ヶ月のトライアル提案
+
+構成案を箇条書きで出してください。</div>
+        </div>
+        <div class="ai-output">
+          <div class="ai-output-header"><span class="ai-output-dot"></span><span class="ai-output-label">AIの回答</span></div>
+          <div class="ai-output-body">
+            <strong>提案書構成案: 整骨院×パーソナルトレーニング連携プログラム</strong>
+            <ol>
+              <li><strong>背景と課題</strong><ul><li>整骨院の患者が抱える「治療後の再発」問題</li><li>運動習慣の定着が再発防止のカギである根拠</li></ul></li>
+              <li><strong>連携の価値</strong><ul><li>患者にとって: 治療＋運動の一貫サポートで根本改善</li><li>整骨院にとって: 患者満足度の向上、差別化、継続率アップ</li><li>トレーナーにとって: 医療者との連携による信頼性の向上</li></ul></li>
+              <li><strong>連携フロー</strong><ul><li>院長が運動指導が必要と判断した患者に紹介カードを渡す</li><li>初回カウンセリング（無料）で患者の状態を共有</li><li>月1回、院長とトレーナーで患者の経過を共有</li></ul></li>
+              <li><strong>料金の考え方</strong><ul><li>患者向け: 通常料金から紹介割引（初月10%OFF等）</li><li>整骨院向け: 紹介手数料 or 共同パッケージ料金</li></ul></li>
+              <li><strong>3ヶ月トライアル提案</strong><ul><li>月3〜5名の紹介を想定</li><li>3ヶ月後に継続率・患者満足度で判断</li><li>トライアル期間中の紹介手数料は無料</li></ul></li>
+            </ol>
+          </div>
+        </div>
+        <div class="scene-body" style="margin-top:16px">
+          <p>この叩き台をもとに、自分の強みや相手の状況に合わせて調整していきます。ゼロから考えるのと、叩き台を編集するのでは、かかる時間がまるで違います。</p>
+          <p style="margin-top:12px">出てきた構成案に対して「トライアル期間の費用負担をもう少し詳しく」「整骨院側のメリットをもっと強調したい」と追加で指示を出せば、AIがその場で修正してくれます。検索だと新しいキーワードで一から探し直しますが、AIなら会話の流れの中で掘り下げられます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="scene-number">SCENE 02</p>
+        <h2 class="scene-title">SNS発信</h2>
+        <div class="ba-grid">
+          <div class="ba-card before"><p class="ba-label">BEFORE</p><p class="ba-body">「今日は何を投稿しよう」と毎日考える。ネタを思いついても、文章にまとめるのに30分〜1時間。投稿頻度がどうしても落ちていく。</p></div>
+          <div class="ba-card after"><p class="ba-label">AFTER</p><p class="ba-body">1週間分のテーマと投稿文をまとめて作れます。最初は半分くらいの時短から始まりますが、自分の型ができてくると、1週間分を15分で仕込めるようになります。</p></div>
+        </div>
+        <div class="prompt-block">
+          <div class="prompt-header"><span class="prompt-label">プロンプト（AIへの指示文）</span><button class="prompt-copy" onclick="copyPrompt(this)">コピーする</button></div>
+          <div class="prompt-text">あなたはSNS運用のアシスタントです。
+
+以下の条件で、Instagram投稿のテーマと本文案を1週間分（7本）作ってください。
+
+【アカウントの概要】
+小規模事業者向けのITコンサルタント。
+AIやデジタルツールの活用を、分かりやすく伝えている。
+
+【フォロワーの特徴】
+個人事業主や少人数の会社を経営する30〜50代。
+ITは苦手だが、事業をもっと良くしたいという意欲がある。
+
+【直近で反応が良かったテーマ】
+・「AIに聞いてみた」系の実体験
+・時短テクニック
+・よくある失敗談
+
+【トーン】
+教える感じではなく、同じ目線で共有する感じ。
+煽らない。シンプルな言葉。
+
+1投稿あたり150〜200文字で、テーマ名と本文をセットで出してください。</div>
+        </div>
+        <div class="ai-output">
+          <div class="ai-output-header"><span class="ai-output-dot"></span><span class="ai-output-label">AIの回答</span></div>
+          <div class="ai-output-body">
+            <strong>月曜: 「請求書、まだ手打ちしてますか」</strong>
+            <p style="margin-top:6px">毎月の請求書作成、以前は1件ずつExcelに打ち込んでいました。今はAIにテンプレートを作ってもらって、金額と日付を変えるだけ。月末の作業が30分から5分に。ちょっとした仕組みで、地味に時間が浮きます。</p>
+            <strong style="display:block;margin-top:18px">火曜: 「"とりあえずAIに聞く"が習慣になった話」</strong>
+            <p style="margin-top:6px">新しいサービスの名前を考えるとき、以前はノートに書き出して1時間悩んでいました。最近は「こういうコンセプトで名前を10個出して」とAIに頼んで、そこから選ぶ。ゼロから考えるより、選ぶ方が早い。</p>
+            <strong style="display:block;margin-top:18px">水曜: 「AIに出してもらった文章、そのまま使ってませんか」</strong>
+            <p style="margin-top:6px">AIの文章はきれいにまとまるけど、どこか"自分の言葉"じゃない感じがしませんか。自分はAIの出力を「素材」として受け取って、言い回しや具体例を自分のものに差し替えています。ひと手間で、ちゃんと自分の発信になります。</p>
+            <p style="margin-top:14px;color:var(--text-d);font-size:12px">（木〜日曜分も同様に続く）</p>
+          </div>
+        </div>
+        <div class="scene-body" style="margin-top:16px">
+          <p>ポイントは、最初から完璧な投稿文を期待しないこと。AIが出してきたものを「素材」として、自分の言葉に直す。この流れが定着すると、発信のハードルが下がります。</p>
+          <p style="margin-top:12px">もう一つ大事なのは、出てきた投稿文に「自分のエピソード」を入れること。AIはきれいな文章を作れますが、あなたの実体験までは知りません。一文入れるだけで、他の誰にも書けない投稿になります。</p>
+        </div>
+        <div class="tip-box" style="margin-top:20px"><strong>音声入力との組み合わせ</strong><br>スマホの音声入力で思いついたことを話す → そのテキストをAIに渡して「SNS投稿用に整えて」と頼む。タイピングすらほぼ不要です。移動中や家事の合間にネタを録っておいて、まとまった時間にAIで整形する。この組み合わせだと「机に向かう時間」がほとんど要りません。</div>
+      </div>
+    </section>
+
+    <section class="section section-bg">
+      <div class="container">
+        <p class="scene-number">SCENE 03</p>
+        <h2 class="scene-title">事業の壁打ち</h2>
+        <div class="ba-grid">
+          <div class="ba-card before"><p class="ba-label">BEFORE</p><p class="ba-body">新しいサービスを考えたい。価格をどうするか迷っている。でも相談相手がいない。頭の中でぐるぐる考えて、結局「もう少し考えよう」で終わる。</p></div>
+          <div class="ba-card after"><p class="ba-label">AFTER</p><p class="ba-body">AIに壁打ち相手になってもらえます。答えを出してもらうのではなく、選択肢を整理してもらう。10分で「何に迷っていたか」が明確になる感覚です。</p></div>
+        </div>
+        <div class="prompt-block">
+          <div class="prompt-header"><span class="prompt-label">プロンプト（AIへの指示文）</span><button class="prompt-copy" onclick="copyPrompt(this)">コピーする</button></div>
+          <div class="prompt-text">あなたは事業の壁打ち相手です。
+答えを出すのではなく、私の考えを整理する手伝いをしてください。
+
+【状況】
+パーソナルトレーニングジムを1人で運営しています。
+月の売上は平均50万円、セッション数は月40本。
+これ以上セッションを増やすと体力的に厳しい。
+
+【悩み】
+売上を上げたいが、セッション数を増やす以外の方法が思いつかない。
+単価を上げるべきか、オンラインメニューを作るべきか、法人契約を狙うべきか。
+どこから手をつければいいか分からない。
+
+選択肢を整理して、それぞれのメリット・デメリット・必要な準備を教えてください。</div>
+        </div>
+        <div class="ai-output">
+          <div class="ai-output-header"><span class="ai-output-dot"></span><span class="ai-output-label">AIの回答</span></div>
+          <div class="ai-output-body">
+            <strong>選択肢の整理</strong>
+            <div class="ai-table-wrap">
+              <table class="ai-table">
+                <thead><tr><th>選択肢</th><th>メリット</th><th>デメリット</th><th>必要な準備</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>単価を上げる</strong></td><td>追加の時間不要。既存の仕組みで完結</td><td>既存客の離脱リスク。値上げの伝え方が重要</td><td>値上げの根拠づくり。既存客への事前案内</td></tr>
+                  <tr><td><strong>オンラインメニュー</strong></td><td>場所と時間の制約を外せる。1対多が可能</td><td>対面の強みが活かしにくい。コンテンツ制作に時間がかかる</td><td>動画撮影環境。プラットフォーム選定</td></tr>
+                  <tr><td><strong>法人契約</strong></td><td>1件あたりの単価が大きい。安定収入になりやすい</td><td>営業活動が必要。決裁に時間がかかる</td><td>提案資料。ターゲット企業リスト</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="margin-top:14px"><strong>補足</strong></p>
+            <ul>
+              <li>「セッション数の上限」が課題の本質なので、時間を増やさずに売上を上げる方向が軸になります</li>
+              <li>最も手軽に始められるのは単価の見直しです。まず既存の価格設定が市場と比べてどうかを確認してみませんか</li>
+              <li>オンラインと法人は準備に時間がかかるため、単価見直しと並行して3ヶ月スパンで検討するのが現実的です</li>
+            </ul>
+          </div>
+        </div>
+        <div class="scene-body" style="margin-top:16px">
+          <p>これはAIの「回答」ですが、最終判断をするのは自分自身です。AIは選択肢を並べて、それぞれの特徴を整理してくれる存在。いわば「優秀なホワイトボード」です。</p>
+          <p style="margin-top:12px">壁打ちのコツは、最初から正解を求めないこと。「まだぼんやりしているんだけど」と前置きしても構いません。出てきた整理に「この中で一番リスクが低いのはどれ？」と続けていくと、10分の会話で頭の中がかなり整理されます。</p>
+          <p style="margin-top:12px">深夜でも早朝でも、相手の都合を気にせず壁打ちできる。これは事業者にとって地味に大きいメリットです。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-label">SUMMARY</p>
+        <h2 class="section-title">この章のまとめ</h2>
+        <p class="section-desc">3つの場面に共通しているのは、<strong>AIにゼロから完成品を求めるのではなく、叩き台や素材を出してもらう</strong>という使い方です。</p>
+        <div class="summary-list">
+          <div class="summary-item"><span class="summary-arrow">→</span><span>提案書 — 構成の叩き台を出してもらい、自分の言葉で仕上げる</span></div>
+          <div class="summary-item"><span class="summary-arrow">→</span><span>SNS — テーマと文案を出してもらい、自分らしさを加える</span></div>
+          <div class="summary-item"><span class="summary-arrow">→</span><span>壁打ち — 選択肢を整理してもらい、自分で判断する</span></div>
+        </div>
+        <p class="scene-body" style="margin-top:20px">最初から大きな時短を期待する必要はありません。「ゼロから考える」が「選ぶ・直す」に変わるだけで、頭の使い方が変わります。まずは1つ、今日やる作業で試してみてください。</p>
+        <p class="scene-body" style="margin-top:12px">プロンプトのコツは、この先の章で詳しく扱います。今は「こういう風に使えるんだな」という感覚が持てていれば、それで十分です。</p>
+      </div>
+    </section>
+
+    <div class="ch-footer container">
+      <div class="ch-footer-next"><a href="../2/index.html" class="btn-primary">次の章へ → 第2章 そのまま使える実践テンプレート5選</a></div>
+      <div class="ch-footer-cta"><p>自分の事業にどう活かすか相談したい方は</p><a href="../../consultation/index.html" class="btn-subtle">無料個別相談を予約する</a></div>
+      <div class="ch-footer-req"><a href="../../contact/index.html">このガイドへの質問・リクエストはこちら</a></div>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded',()=>{
+    const sc=document.getElementById('hero-stars');
+    if(sc){for(let i=0;i<40;i++){const s=document.createElement('div');s.className='hero-star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*70+'%';s.style.setProperty('--dur',(3+Math.random()*5)+'s');s.style.setProperty('--delay',Math.random()*4+'s');s.style.width=s.style.height=(Math.random()>.7?'2px':'1px');sc.appendChild(s);}}
+    window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';});
+  });
+  function copyPrompt(btn){const text=btn.closest('.prompt-block').querySelector('.prompt-text').textContent;navigator.clipboard.writeText(text).then(()=>{btn.textContent='コピーしました';btn.classList.add('copied');setTimeout(()=>{btn.textContent='コピーする';btn.classList.remove('copied');},2000);});}
+  </script>
+  <script src="../../js/config.js"></script>
+  <script src="../../js/components.js"></script>
+</body>
+</html>
