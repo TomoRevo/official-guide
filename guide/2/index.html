@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>第2章 そのまま使える実践テンプレート5選 | AI活用ガイド | TomoRevo</title>
-  <meta name="description" content="事業者向けAI活用テンプレート5選。提案メール・SNS投稿・競合リサーチ・キャッチコピー・顧客対応。コピペで使える。">
+  <meta name="description" content="事業者向けAI活用テンプレート5選。提案メール・SNS投稿・リサーチ業務・キャッチコピー・顧客対応。コピペで使える。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Zen+Maru+Gothic:wght@400;500;700;900&family=Shippori+Mincho:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
     .prompt-copy{padding:5px 12px;border-radius:var(--r);font-size:11px;font-weight:700;border:1px solid var(--border);color:var(--text-s);cursor:pointer;transition:all .2s;background:transparent}
     .prompt-copy:hover{border-color:var(--border-g);color:var(--text)}
     .prompt-copy.copied{background:var(--success-g);color:var(--success);border-color:rgba(80,232,154,0.15)}
-    .prompt-text{padding:16px;font-family:var(--font-mono);font-size:12px;color:var(--text-s);line-height:1.7;white-space:pre-wrap;word-break:break-all;overflow-x:auto}
+    .prompt-text{padding:16px;font-family:var(--font-mono);font-size:14px;color:var(--text-s);line-height:1.7;white-space:pre-wrap;word-break:break-all;overflow-x:auto}
     .ai-output{margin:20px 0;background:var(--bg-card);border:1px solid var(--border-g);border-radius:var(--r-lg);overflow:hidden}
     .ai-output-header{padding:10px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
     .ai-output-dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
@@ -112,11 +112,11 @@
           <div class="prompt-header"><span class="prompt-label">プロンプト（AIへの指示文）</span><button class="prompt-copy" onclick="copyPrompt(this)">コピーする</button></div>
           <div class="prompt-text">以下の情報をもとに、クライアントへの提案メールを作成してください。
 
-■ 送信者の業種: 【例: パーソナルトレーニングジム】
-■ サービス名: 【例: STAY GOLD パーソナルトレーニング】
-■ 送り先: 【例: 法人の福利厚生担当者】
-■ 提案内容: 【例: 従業員向け健康プログラムの導入提案】
-■ 相手のメリット: 【例: 従業員の健康増進による生産性向上、医療費削減】
+■ 送信者の業種: 【例: 税理士事務所】
+■ サービス名: 【例: 山田税理士事務所】
+■ 送り先: 【例: 飲食店を3店舗経営する個人事業主】
+■ 提案内容: 【例: 確定申告だけでなく、月次の経営数字の見える化サポート】
+■ 相手のメリット: 【例: 毎月の利益がリアルタイムでわかる、節税ポイントを早めに把握できる】
 ■ トーン: 【丁寧 / カジュアル / フォーマル】
 ■ メールの長さ: 【200字程度 / 400字程度】
 
@@ -126,12 +126,12 @@
         <div class="ai-output">
           <div class="ai-output-header"><span class="ai-output-dot"></span><span class="ai-output-label">AIの回答</span></div>
           <div class="ai-output-body">
-            <strong>件名: 従業員の皆様の健康づくりをサポートするプログラムのご提案</strong>
-            <p style="margin-top:10px">株式会社〇〇 福利厚生ご担当者様</p>
-            <p style="margin-top:8px">はじめまして。パーソナルトレーニングジム「STAY GOLD」の藤田と申します。</p>
-            <p style="margin-top:8px">貴社の従業員様の健康増進に貢献できるプログラムをご用意しており、ご検討いただけないかと思いご連絡いたしました。</p>
-            <p style="margin-top:8px">当プログラムでは、一人ひとりの体力レベルに合わせた個別指導を行い、継続しやすい仕組みを整えております。導入企業様からは「欠勤率が下がった」「社内の雰囲気が明るくなった」といったお声をいただいております。</p>
-            <p style="margin-top:8px">まずは15分ほどのオンラインでのご説明の機会をいただけましたら幸いです。ご都合のよい日時をお知らせいただけますでしょうか。</p>
+            <strong>件名: 毎月の経営数字を「見える化」するサポートのご提案</strong>
+            <p style="margin-top:10px">〇〇様</p>
+            <p style="margin-top:8px">はじめまして。山田税理士事務所の山田と申します。</p>
+            <p style="margin-top:8px">飲食店を複数店舗経営されていると、日々の売上管理や経費の把握にお忙しいかと存じます。確定申告の時期にまとめて整理するのではなく、月次で経営数字を見える化することで、利益の変動や節税のタイミングを早めに把握できるようになります。</p>
+            <p style="margin-top:8px">当事務所では、店舗ビジネスに特化した月次レポートの仕組みをご提供しており、「数字を見る習慣ができた」「仕入れのムダに早く気づけた」というお声をいただいております。</p>
+            <p style="margin-top:8px">まずは15分ほど、現在の管理方法についてお話を伺えればと思います。ご都合のよい日時をお知らせいただけますでしょうか。</p>
             <p style="margin-top:8px">何卒よろしくお願いいたします。</p>
           </div>
         </div>
@@ -177,49 +177,53 @@
     <section class="section section-bg">
       <div class="container">
         <p class="tmpl-number">TEMPLATE 03</p>
-        <h2 class="tmpl-title">競合リサーチ＆差別化整理</h2>
-        <p class="tmpl-desc">自分のサービスと競合を比べたいけど、リサーチに何時間もかけていられない。AIに整理させれば、自分の立ち位置が一目でわかる。</p>
+        <h2 class="tmpl-title">リサーチ業務をAIに任せる</h2>
+        <p class="tmpl-desc">市場調査、競合の特徴整理、新しいサービスを始める前の情報収集。リサーチは大事だけど、自分でやると半日がすぐ消える。<strong>情報を集める作業は人間がやるべきではない。</strong>あなたのリソースは「意思決定」に使うべき。集めて整理するところまではAIに任せよう。</p>
         <div class="prompt-block">
           <div class="prompt-header"><span class="prompt-label">プロンプト（AIへの指示文）</span><button class="prompt-copy" onclick="copyPrompt(this)">コピーする</button></div>
-          <div class="prompt-text">以下の情報をもとに、競合との差別化ポイントを整理してください。
+          <div class="prompt-text">以下のテーマについて、事業判断に必要な情報を整理してください。
 
-■ 自分のサービス: 【例: 個人事業主向けのAI活用コンサルティング】
-■ 自分の強み: 【例: IT企業出身＋対面での店舗事業経験があり、現場の悩みがわかる】
-■ ターゲット: 【例: IT苦手な個人事業主・小規模事業者】
-■ 競合として意識しているサービス（わかる範囲で）:
-  - 【例: 大手ITスクールのAI講座】
-  - 【例: フリーランスのAIコンサル】
-  - 【例: YouTube等の無料AI情報】
-■ 比較したい観点: 【価格 / サポート体制 / カリキュラムの実践度 / 対象者の層】
+■ 調べたいテーマ: 【例: 自分のエステサロンの近隣にある競合サロンの特徴】
+■ 自分の事業の概要: 【例: 個人経営のフェイシャルエステサロン、開業2年目、完全予約制】
+■ 知りたいこと:
+  - 【例: 近隣エリアの競合はどんなメニュー構成・価格帯が多いか】
+  - 【例: 自分のサロンの強みと弱みは何か】
+  - 【例: 差別化できるポイントはどこか】
+■ 最終的にやりたいこと: 【例: 来月の新メニュー追加の判断材料にしたい】
 
 以下の形式で出力してください:
-1. 比較表（表形式）
-2. 自分のサービスが選ばれる理由（3つ）
-3. 競合にあって自分にない要素（弱みの認識）</div>
+1. 調査結果の要点（箇条書き）
+2. 比較表（表形式）
+3. あなたの事業への提案（3つ）</div>
         </div>
         <div class="ai-output">
           <div class="ai-output-header"><span class="ai-output-dot"></span><span class="ai-output-label">AIの回答</span></div>
           <div class="ai-output-body">
+            <p><strong>調査結果の要点:</strong></p>
+            <ul>
+              <li>フェイシャルエステの一般的な価格帯は初回5,000〜8,000円、通常8,000〜15,000円</li>
+              <li>大手チェーンは低価格×回数券で集客、個人サロンは「専門特化」で差別化する傾向</li>
+              <li>SNSでの口コミ・ビフォーアフター投稿が集客の主戦場になっている</li>
+            </ul>
             <div class="ai-table-wrap">
               <table class="ai-table">
-                <thead><tr><th>観点</th><th>自分のサービス</th><th>大手ITスクール</th><th>フリーランスAIコンサル</th><th>YouTube無料情報</th></tr></thead>
+                <thead><tr><th>観点</th><th>自分のサロン</th><th>大手チェーン</th><th>近隣の個人サロン</th></tr></thead>
                 <tbody>
-                  <tr><td>価格帯</td><td>月額制（中価格）</td><td>高額（数十万〜）</td><td>案件単位（中〜高）</td><td>無料</td></tr>
-                  <tr><td>サポート</td><td>1対1の伴走型</td><td>集団講義+質問対応</td><td>案件ベース</td><td>なし</td></tr>
-                  <tr><td>実践度</td><td>受講者の実業務で即使う</td><td>汎用カリキュラム</td><td>高い（案件次第）</td><td>自分次第</td></tr>
-                  <tr><td>対象者</td><td>IT苦手な事業主</td><td>幅広い</td><td>IT理解ある層</td><td>全般</td></tr>
+                  <tr><td>価格帯</td><td>中価格（10,000円前後）</td><td>低価格（5,000円〜）</td><td>中〜高価格</td></tr>
+                  <tr><td>強み</td><td>完全予約制・マンツーマン</td><td>駅近・知名度</td><td>専門技術・こだわり</td></tr>
+                  <tr><td>集客</td><td>紹介中心</td><td>広告・クーポンサイト</td><td>Instagram・口コミ</td></tr>
                 </tbody>
               </table>
             </div>
-            <p style="margin-top:14px"><strong>選ばれる理由:</strong></p>
+            <p style="margin-top:14px"><strong>あなたの事業への提案:</strong></p>
             <ul>
-              <li>店舗経営の経験があるため、現場の「ITどころじゃない」感覚を理解している</li>
-              <li>汎用的な教材ではなく、その人の事業に合わせたAI活用を一緒に設計する</li>
-              <li>「教える」のではなく伴走する。わからないときにすぐ聞ける距離感</li>
+              <li>「完全予約制×マンツーマン」は大手にない強み。価格競争ではなく体験の質で勝負する</li>
+              <li>新メニューは既存客の悩みベースで設計すると、リピート率が上がりやすい</li>
+              <li>ビフォーアフター投稿を月2回でもInstagramに出すと、紹介以外の流入が増える可能性</li>
             </ul>
           </div>
         </div>
-        <div class="tmpl-point"><strong>ポイント:</strong> 自分の強みは自分では言語化しにくい。AIに客観的に整理させることで、営業や発信の場面でブレずに伝えられるようになる。</div>
+        <div class="tmpl-point"><strong>ポイント:</strong> リサーチの目的は「情報を集めること」ではなく「意思決定すること」。AIに整理させた結果を見て、判断するのはあなた。集める作業に半日使うのではなく、判断に集中できる状態を作ろう。競合だけでなく、新サービスの市場調査、イベント企画の情報収集など、リサーチ全般に同じテンプレートが使える。</div>
       </div>
     </section>
 
@@ -275,13 +279,13 @@
           <div class="prompt-header"><span class="prompt-label">プロンプト（AIへの指示文）</span><button class="prompt-copy" onclick="copyPrompt(this)">コピーする</button></div>
           <div class="prompt-text">以下の条件で、顧客対応の定型文を作成してください。
 
-■ 業種: 【例: パーソナルトレーニングジム】
+■ 業種: 【例: ヨガスタジオ】
 ■ 場面: 【問い合わせ返信 / 来店後のお礼 / 予約変更の案内 / お断り】
 ■ 連絡手段: 【メール / LINE / DM】
 ■ 相手: 【新規の問い合わせ客 / 既存の顧客 / 紹介経由の方】
 ■ 伝えたい内容: 【例: 体験レッスンの日程案内と持ち物の連絡】
 ■ トーン: 【温かみのある丁寧語 / ビジネスライク / フランク】
-■ 補足: 【例: 初回は手ぶらでOKということも伝えたい】
+■ 補足: 【例: 動きやすい服装ならOK、マットは無料レンタルと伝えたい】
 
 短すぎず長すぎず、相手が安心できる文面にしてください。</div>
         </div>
@@ -289,10 +293,10 @@
           <div class="ai-output-header"><span class="ai-output-dot"></span><span class="ai-output-label">AIの回答 — 問い合わせ返信</span></div>
           <div class="ai-output-body">
             <p>〇〇様</p>
-            <p style="margin-top:8px">お問い合わせいただきありがとうございます。<br>STAY GOLD パーソナルトレーニングの藤田です。</p>
+            <p style="margin-top:8px">お問い合わせいただきありがとうございます。<br>ヨガスタジオ〇〇の田中です。</p>
             <p style="margin-top:8px">体験レッスンのご希望、承りました。<br>以下の日程でご案内可能です。</p>
-            <p style="margin-top:8px">・4月5日（土）10:00〜<br>・4月7日（月）14:00〜<br>・4月9日（水）18:00〜</p>
-            <p style="margin-top:8px">所要時間は約60分です。<br>ウェアとシューズはこちらでご用意しておりますので、手ぶらでお越しいただけます。</p>
+            <p style="margin-top:8px">・4月5日（土）10:00〜 リラックスヨガ<br>・4月8日（火）19:00〜 ベーシックヨガ<br>・4月10日（木）10:30〜 朝ヨガ</p>
+            <p style="margin-top:8px">所要時間は約60分です。<br>動きやすい服装でお越しいただければ大丈夫です。ヨガマットは無料でお貸ししております。</p>
             <p style="margin-top:8px">ご都合のよい日時をお知らせいただければ、ご予約を確定いたします。</p>
             <p style="margin-top:8px">お会いできることを楽しみにしております。</p>
           </div>
@@ -338,7 +342,7 @@
 
     <div class="ch-footer container">
       <div class="ch-footer-next"><a href="#" class="btn-primary btn-disabled">次の章へ → 第3章 伝え方を変えるだけで、AIの出力は別物になる（Coming Soon）</a></div>
-      <div class="ch-footer-cta"><p>自分の事業にどう活かすか相談したい方は</p><a href="../../consultation/index.html" class="btn-subtle">無料個別相談を予約する</a></div>
+      <div class="ch-footer-cta"><p>自分の事業専用のテンプレートを一緒に作りたい方は</p><a href="../../consultation/index.html" class="btn-subtle">30分の無料相談で自分専用に仕上げる</a></div>
       <div class="ch-footer-req"><a href="../../contact/index.html">このガイドへの質問・リクエストはこちら</a></div>
     </div>
   </main>
