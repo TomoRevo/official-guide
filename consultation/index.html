@@ -94,17 +94,26 @@
             <div class="form-group">
               <label class="form-label">希望日時（第1希望）</label>
               <p style="font-size:12px;color:#8b90a0;margin-bottom:8px;">所要時間は約30分です</p>
-              <input type="datetime-local" name="preferred_date_1" class="form-input" required>
+              <div class="datetime-wrap">
+                <input type="datetime-local" name="preferred_date_1" class="form-input datetime-input" required>
+                <span class="datetime-hint">タップして日時を選択</span>
+              </div>
             </div>
 
             <div class="form-group">
               <label class="form-label">希望日時（第2希望）<span class="optional">（任意）</span></label>
-              <input type="datetime-local" name="preferred_date_2" class="form-input">
+              <div class="datetime-wrap">
+                <input type="datetime-local" name="preferred_date_2" class="form-input datetime-input">
+                <span class="datetime-hint">タップして日時を選択</span>
+              </div>
             </div>
 
             <div class="form-group">
               <label class="form-label">希望日時（第3希望）<span class="optional">（任意）</span></label>
-              <input type="datetime-local" name="preferred_date_3" class="form-input">
+              <div class="datetime-wrap">
+                <input type="datetime-local" name="preferred_date_3" class="form-input datetime-input">
+                <span class="datetime-hint">タップして日時を選択</span>
+              </div>
             </div>
 
             <div class="form-submit-area">
