@@ -25,7 +25,6 @@ var SITE = {
     { label: 'ガイド',         href: '/guide/index.html' },
     { label: 'サービス',       href: '/services/index.html' },
     { label: 'プロフィール',   href: '/about/index.html' },
-    { label: '個別相談',       href: '/consultation/index.html' },
-    { label: '質問・リクエスト', href: '/contact/index.html' }
+    { label: '個別相談',       href: '/consultation/index.html' }
   ]
 };
