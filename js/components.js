@@ -73,10 +73,6 @@
 
     el.innerHTML =
       '<div class="container">' +
-        '<div class="footer-cta">' +
-          '<p>' + SITE.footerCta.text + '</p>' +
-          '<a href="' + resolve(SITE.footerCta.href) + '" class="btn-subtle">' + SITE.footerCta.label + '</a>' +
-        '</div>' +
         '<div class="footer-nav">' + footerNavHtml + '</div>' +
         '<div class="footer-brand">' +
           '<p class="footer-logo">' + SITE.brand + '</p>' +
